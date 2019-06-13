@@ -27,12 +27,21 @@ function handleInput() {
 function handleCheck() {
   const listContainer = $('ul.shopping-list');
   listContainer.on('click', 'button.shopping-item-toggle', function (e) {
-    const liParent = $(e.currentTarget).parents('li');
+    const liParent = $(this).parents('li');
     const spanItemTxt = $(liParent).find('span.shopping-item');
     spanItemTxt.toggleClass('shopping-item__checked');
   });
 }
 
+function handleDelete() {
+  const listContainer = $('ul.shopping-list');
+  listContainer.on('click', 'button.shopping-item-delete', function (e) {
+    const liParent = $(this).parents('li');
+    liParent.remove();
+  });
+}
+
+handleDelete();
 handleCheck();
 handleInput();
 
